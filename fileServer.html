@@ -1,0 +1,87 @@
+<!--
+ * @Author: Jacob-biu 2777245228@qq.com
+ * @Date: 2023-06-02 23:08:08
+ * @LastEditors: Jacob-biu 2777245228@qq.com
+ * @LastEditTime: 2023-06-03 02:31:09
+ * @FilePath: /http_web_file_server_dev/fileServer.html
+ * @Description: 
+ * Copyright (c) 2023 by Jacob John, All Rights Reserved. 
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="icon" href="data:;base64,=">
+        <title>List of Files</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <script type="text/javascript">
+            function confirmDelete() {
+                return confirm('Sure to delete?');
+            }
+
+            function uploadWin(){
+                var vDiv = document.getElementById('div1');
+                vDiv.style.display = 'block';
+                vDiv.style.zIndex = 10;
+                vDiv.style.position = "absolute";
+
+                var vDiv2 = document.getElementById('div2');
+                vDiv2.style.display = 'block';
+                vDiv2.style.zIndex = 11;
+                vDiv2.style.position = "fixed";
+                vDiv2.style.top = "20%";
+                vDiv2.style.left = "50%";
+                vDiv2.style.marginLeft = "-111px";
+                vDiv2.style.marginTop = "-20px";
+            }
+            
+        </script>
+        <style>
+            .col1{
+                text-align: left;
+                word-break:keep-all;
+                word-wrap:break-word;
+                white-space: nowrap;
+                
+                overflow: hidden;
+                text-overflow:ellipsis;
+            }
+            .col2{
+                width: 50px;
+            }
+            .col3{
+                width: 50px;
+            }
+            /* .bg{
+                
+                background-image: url("background.png");
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                /* background-size: 100% 100%; **
+            } */
+        </style>
+    </head>
+
+    <body style="text-align: center; margin: 0 auto; background-color: rgb(196, 255, 201); background-image: url('backgroud.png');">
+        <div id="div1" style="width: 100%; height: 100%; display: none;text-align: center; background-color: #8b8b8b; opacity: 0.5;" ></div>
+        <div id="div2" style="width: 200px; height: 30px; text-align: center; display: none; padding: 30px 30px; font-size: large; opacity: 1; background-color:#ffffff; border-radius: 20px; border: 1px solid #5e5c5c4b;">Uploading...</div>
+        <div style="width:700px;  margin:0 auto; padding: 30px 0; border: 0 ;">
+            <div style="width:600px; border:1px; text-align: center; margin:auto; padding:20px 0px;" >
+                <div style="width:300px; text-align: center; margin: auto;"><h3>Choose the file to upload </h3></div>
+                <form id="uploadfile" action="upload"  method="post" enctype="multipart/form-data" style="text-align:cenetr;height: fit-content; width: 100%px;">
+                        <input type="file" id="upload" name="upload" style = "border:1px dotted;height: fit-content; text-align: center;" />
+                        <input type="submit" onclick="uploadWin()" value="Upload" />
+                </form>
+            </div>
+            
+            </br>
+            <div style="width:600px; text-align: center; margin:auto;"><h2>List of Files</h2></div>
+            <table border="1px" style="border: dotted;width: 600px;;text-align: center; margin: auto;table-layout:fixed;">
+                <thead>
+                    <td style="text-align: center;width: 350px;">File Name</td> <td class="col2" style="width: fit-content;"></td> <td class="col3" style="width: fit-content;"></td>
+                </thead>
+<!--filelist_label-->
+            </table>
+        </div>
+    </body>
+</html>
